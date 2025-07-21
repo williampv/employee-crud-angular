@@ -15,4 +15,12 @@ export class DataService {
   insertData(data: any){
     return this.httpclient.post('https://localhost:7097/api/EmployeeData',data);
   }
+
+  getEmployeeByID(id:any){
+    return this.httpclient.get('https://localhost:7097/api/EmployeeData/'+id);
+  }
+
+  updateData(id:any,data:any){
+    return this.httpclient.put('https://localhost:7097/api/EmployeeData/'+id,data);
+  }
 }
