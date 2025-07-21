@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Employee } from '../../models/employee';
 
 @Component({
   standalone: true,
   selector: 'app-employee',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   providers: [DataService],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
@@ -15,6 +17,7 @@ export class EmployeeComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   employees: any;
+  employee = new Employee();
   
   ngOnInit() {
     this.getEmployeeData();
@@ -29,4 +32,11 @@ export class EmployeeComponent implements OnInit {
       console.error('Error fetching employee data', error);
     });
   }
+
+  insertData(){
+    this.dataService.insertData(this.employee).subscribe(data =>{
+      this.getEmployeeData();
+    });
+  }
+
 }

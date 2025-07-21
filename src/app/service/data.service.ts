@@ -11,4 +11,8 @@ export class DataService {
   getData() {
     return this.httpclient.get('https://localhost:7097/api/EmployeeData');
   }
+
+  insertData(data: any){
+    return this.httpclient.post('https://localhost:7097/api/EmployeeData',data);
+  }
 }

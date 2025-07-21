@@ -1,7 +1,12 @@
-<!-- <form (ngSubmit)="insertData()">
+<form (ngSubmit)="insertData()">
     <div class="form-group">
-        <label for="name">Enter Name</label>
-        <input type="text" name="name" class="form-control" [(ngModel)]="employee.name">
+        <label for="name">Enter Firts Name</label>
+        <input type="text" name="firstname" class="form-control" [(ngModel)]="employee.firstName">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Enter Last Name</label>
+        <input type="text" name="lastname" class="form-control" [(ngModel)]="employee.lastName">
     </div>
 
     <div class="form-group">
@@ -10,26 +15,48 @@
     </div>
 
     <div class="form-group">
-        <label for="name">Enter Password</label>
-        <input type="password" name="password" class="form-control" [(ngModel)]="employee.password">
+        <label for="name">Enter Contact Number</label>
+        <input type="text" name="contactno" class="form-control" [(ngModel)]="employee.contactNo">
     </div>
 
+    <div class="form-group">
+        <label for="name">Enter City</label>
+        <input type="text" name="city" class="form-control" [(ngModel)]="employee.city">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Enter Address</label>
+        <input type="text" name="city" class="form-control" [(ngModel)]="employee.address">
+    </div>
+
+
+
     <button class="btn btn-primary btn-sm mt-4">Submit</button>
-</form> -->
+</form>
+
+<br><br>
 
 <table class="table">
     <thead>
         <tr>
             <th>#</th>
             <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
+            <th>Contact No</th>
+            <th>City</th>
+            <th>Address</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let emp of employees">
             <td>{{ emp.employeeId }}</td>
             <td>{{ emp.firstName }}</td>
+            <td>{{ emp.lastName }}</td>
             <td>{{ emp.email }}</td>
+            <td>{{ emp.contactNo }}</td>
+            <td>{{ emp.city }}</td>
+            <td>{{ emp.address }}</td>
         </tr>
     </tbody>
 </table>
