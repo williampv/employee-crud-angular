@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,12 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   constructor(private httpclient: HttpClient) { }
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
 
   getData() {
     return this.httpclient.get('https://localhost:7097/api/EmployeeData');
@@ -22,5 +28,9 @@ export class DataService {
 
   updateData(id:any,data:any){
     return this.httpclient.put('https://localhost:7097/api/EmployeeData/'+id,data);
+  }
+
+  deleteData(id:any) {
+    return this.httpclient.delete('https://localhost:7097/api/EmployeeData/'+id);
   }
 }
